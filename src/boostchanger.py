@@ -8,6 +8,7 @@ app.setQuitOnLastWindowClosed(False)
 
 # /sys/devices/system/cpu/intel_pstate/no_turbo
 
+
 def turboOn():
     system("echo 0 | pkexec tee /sys/devices/system/cpu/intel_pstate/no_turbo")
     notification.notify(
@@ -27,10 +28,10 @@ def turboOff():
 
 
 # Add icons
-icon = QIcon("icons/icon.png")
-OnIcon = QIcon("icons/on.png")
-OffIcon = QIcon("icons/off.png")
-exitIcon = QIcon("icons/exit.png")
+icon = QIcon("./src/icons/icon.png")
+OnIcon = QIcon("./src/icons/on.png")
+OffIcon = QIcon("./src/icons/off.png")
+exitIcon = QIcon("./src/icons/exit.png")
 
 # Adding item on the menu bar
 tray = QSystemTrayIcon()
