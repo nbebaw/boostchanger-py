@@ -1,6 +1,6 @@
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QAction
-from os import system
+import os
 from plyer import notification
 
 app = QApplication([])
@@ -10,7 +10,7 @@ app.setQuitOnLastWindowClosed(False)
 
 
 def turboOn():
-    system("echo 0 | pkexec tee /sys/devices/system/cpu/intel_pstate/no_turbo")
+    os.system("echo 0 | pkexec tee /sys/devices/system/cpu/intel_pstate/no_turbo")
     notification.notify(
         # title="Turbo boost",
         message="Turbo boost is now ON",
@@ -19,7 +19,7 @@ def turboOn():
 
 
 def turboOff():
-    system("echo 1 | pkexec tee /sys/devices/system/cpu/intel_pstate/no_turbo")
+    os.system("echo 1 | pkexec tee /sys/devices/system/cpu/intel_pstate/no_turbo")
     notification.notify(
         # title="Turbo boost",
         message="Turbo boost is now OFF",
