@@ -1,2 +1,2 @@
 include .pylintrc
-recursive-include boost/icons *
+recursive-include src/icons *
