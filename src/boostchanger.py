@@ -8,7 +8,6 @@ app.setQuitOnLastWindowClosed(False)
 
 # /sys/devices/system/cpu/intel_pstate/no_turbo
 
-
 def turboOn():
     system("echo 0 | pkexec tee /sys/devices/system/cpu/intel_pstate/no_turbo")
     notification.notify(
