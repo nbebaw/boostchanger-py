@@ -5,7 +5,7 @@ TAR=/usr/bin/tar
 
 # prepare
 if [ -f $WGET ]; then
-    wget https://github.com/nbebaw/boostchanger-py/releases/download/$PKGVER/boost_changer-$PKGVER.tar.gz
+    wget https://github.com/nbebaw/boostchanger-py/releases/download/v$PKGVER/boost_changer-$PKGVER.tar.gz
 else
     echo "To install boostchanger you need ( wget ). Please install it and try again. e.g: sudo apt install wget OR sudo pacman -S wget"
 fi
