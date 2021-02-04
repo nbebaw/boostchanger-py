@@ -11,3 +11,5 @@ install -Dm 644 build/boostchanger-py.png /usr/share/pixmaps/boostchanger-py.png
 # add boostchanger to autostart
 cp build/boostchanger-py.desktop /home/$SUDO_USER/.config/autostart
 chown $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/autostart/boostchanger-py.desktop
+
+echo "Boost Changer is successfully installed"
