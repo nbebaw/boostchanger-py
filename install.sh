@@ -1,5 +1,17 @@
 #!/bin/bash
 PKGVER=0.0.4
+PKGOLD=0.0.3
+
+# prepare
+
+if [ -d /opt/boostchanger-v$PKGOLD]; then
+    rm -r /opt/boostchanger-v$PKGOLD
+    rm /usr/bin/boostchanger-py
+    rm /usr/share/applications/boostchanger-py.desktop
+    rm /usr/share/pixmaps/boostchanger-py.png
+    rm /home/$SUDO_USER/.config/autostart
+    echo "The old version of Boost Changer has been deleted"
+fi
 
 # package
 cp -r src /opt
