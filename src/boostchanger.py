@@ -31,7 +31,6 @@ def turboOff():
 path = os.path.dirname(os.path.abspath(__file__))
 # Add icons
 icon = QIcon(os.path.join(path, "icons/icon.png"))
-print(os.path.join(path, "icons/icon.png"))
 OnIcon = QIcon(os.path.join(path, "icons/on.png"))
 OffIcon = QIcon(os.path.join(path, "icons/off.png"))
 exitIcon = QIcon(os.path.join(path, "icons/exit.png"))
