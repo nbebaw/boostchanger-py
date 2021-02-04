@@ -6,8 +6,6 @@ from plyer import notification
 app = QApplication([])
 app.setQuitOnLastWindowClosed(False)
 
-# /sys/devices/system/cpu/intel_pstate/no_turbo
-
 
 def turboOn():
     os.system("echo 0 | pkexec tee /sys/devices/system/cpu/intel_pstate/no_turbo")
@@ -43,14 +41,34 @@ tray.setVisible(True)
 
 # Creating the options
 menu = QMenu()
-option1 = QAction("Turbo boost ON")
-option1.triggered.connect(turboOn)
-option1.setIcon(OnIcon)
-option2 = QAction("Turbo boost OFF")
-option2.triggered.connect(turboOff)
-option2.setIcon(OffIcon)
-menu.addAction(option1)
-menu.addAction(option2)
+
+# Turbo boost ON
+boostOn = QAction("Turbo boost ON")
+boostOn.triggered.connect(turboOn)
+boostOn.setIcon(OnIcon)
+
+# Turbo boost OFF
+boostOff = QAction("Turbo boost OFF")
+boostOff.triggered.connect(turboOff)
+boostOff.setIcon(OffIcon)
+
+# new menu for energy performance in the main menu
+energyMenu = QMenu("Energy performance")
+powerSave = QAction("Power Save")
+balance = QAction("Balance")
+balancePerformance = QAction("Balance Performance")
+performance = QAction("Performance")
+
+energyMenu.addAction(powerSave)
+energyMenu.addAction(balance)
+energyMenu.addAction(balancePerformance)
+energyMenu.addAction(performance)
+
+# Add all options on menu
+menu.addMenu(energyMenu)
+menu.addAction(boostOn)
+menu.addAction(boostOff)
+
 
 # Adding separator between the options and quit
 menu.addSeparator()

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PKGVER=0.0.4
+PKGVER=0.1.0
 # package delete
 rm -r /opt/boostchanger-v$PKGVER
 rm /usr/bin/boostchanger-py
