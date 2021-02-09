@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=0.1.0
 Name=Boost Changer
-GenericName[de]=CPU Turbo Boost Steuerung
+GenericName[de]=Tray application CPU Turbo Boost Steuerung
 Comment=Tray application to control turbo boost
 Exec=/usr/bin/boostchanger-py
 Icon=/usr/share/pixmaps/boostchanger-py.png
