@@ -29,13 +29,13 @@ in fact it can run on top of TLP.
 ### Download, extract and setup
 ```bash
 # Download
-wget https://github.com/nbebaw/boostchanger-py/releases/download/v0.0.4/boost_changer-0.0.4.tar.gz
+wget https://github.com/nbebaw/boostchanger-py/releases/download/v0.1.0/boost_changer-0.1.0.tar.gz
 
 # Extract
-tar -xvf boost_changer-0.0.4.tar.gz
+tar -xvf boost_changer-0.1.0.tar.gz
 
 # Setup
-cd boost_changer-0.0.4
+cd boost_changer-0.1.0
 sudo ./install.sh
 ```
 
@@ -44,5 +44,4 @@ sudo ./install.sh
 Feature | Prio
 --- | ---
 Add AMD Support | 1
-CPU Frequencies | 1
 
