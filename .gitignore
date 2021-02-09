@@ -2,3 +2,5 @@ dist
 dev_clean.sh
 important_info.txt
 boost_changer.egg-info
+__pycache__
+untitled.ui

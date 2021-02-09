@@ -1,29 +1,12 @@
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QAction
+from PyQt5.QtWidgets import *
+from PyQt5 import QtCore
 import os
-from plyer import notification
+import functions
+import aboutWindow
 
 app = QApplication([])
 app.setQuitOnLastWindowClosed(False)
-
-
-def turboOn():
-    os.system("echo 0 | pkexec tee /sys/devices/system/cpu/intel_pstate/no_turbo")
-    notification.notify(
-        # title="Turbo boost",
-        message="Turbo boost is now ON",
-        app_name="Boost Changer",
-    )
-
-
-def turboOff():
-    os.system("echo 1 | pkexec tee /sys/devices/system/cpu/intel_pstate/no_turbo")
-    notification.notify(
-        # title="Turbo boost",
-        message="Turbo boost is now OFF",
-        app_name="Boost Changer",
-    )
-
 
 # Get the absolute path of the directory
 path = os.path.dirname(os.path.abspath(__file__))
@@ -32,6 +15,8 @@ icon = QIcon(os.path.join(path, "icons/icon.png"))
 OnIcon = QIcon(os.path.join(path, "icons/on.png"))
 OffIcon = QIcon(os.path.join(path, "icons/off.png"))
 exitIcon = QIcon(os.path.join(path, "icons/exit.png"))
+aboutIcon = QIcon(os.path.join(path, "icons/about.png"))
+energyIcon = QIcon(os.path.join(path, "icons/energy.png"))
 
 # Adding item on the menu bar
 tray = QSystemTrayIcon()
@@ -42,33 +27,51 @@ tray.setVisible(True)
 # Creating the options
 menu = QMenu()
 
+about = QAction("About")
+MainWindow = QMainWindow()
+ui = aboutWindow.Ui_MainWindow()
+ui.setupUi(MainWindow)
+
+# make About window center of screen
+qr = MainWindow.frameGeometry()
+cp = QDesktopWidget().availableGeometry().center()
+qr.moveCenter(cp)
+MainWindow.move(qr.topLeft())
+about.triggered.connect(MainWindow.show)
+about.setIcon(aboutIcon)
+
 # Turbo boost ON
 boostOn = QAction("Turbo boost ON")
-boostOn.triggered.connect(turboOn)
+boostOn.triggered.connect(functions.turboOn)
 boostOn.setIcon(OnIcon)
 
 # Turbo boost OFF
 boostOff = QAction("Turbo boost OFF")
-boostOff.triggered.connect(turboOff)
+boostOff.triggered.connect(functions.turboOff)
 boostOff.setIcon(OffIcon)
 
 # new menu for energy performance in the main menu
 energyMenu = QMenu("Energy performance")
 powerSave = QAction("Power Save")
+powerSave.triggered.connect(functions.powerSave)
 balance = QAction("Balance")
+balance.triggered.connect(functions.balance)
 balancePerformance = QAction("Balance Performance")
+balancePerformance.triggered.connect(functions.balancePerformance)
 performance = QAction("Performance")
+performance.triggered.connect(functions.performance)
 
 energyMenu.addAction(powerSave)
 energyMenu.addAction(balance)
 energyMenu.addAction(balancePerformance)
 energyMenu.addAction(performance)
+energyMenu.setIcon(energyIcon)
 
 # Add all options on menu
+menu.addAction(about)
 menu.addMenu(energyMenu)
 menu.addAction(boostOn)
 menu.addAction(boostOff)
-
 
 # Adding separator between the options and quit
 menu.addSeparator()

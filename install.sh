@@ -12,6 +12,8 @@ if [ -d /opt/boostchanger-v$PKGOLD]; then
     rm /home/$SUDO_USER/.config/autostart
     echo "The old version of Boost Changer has been deleted"
 fi
+# install plyer package for notifications
+pip install plyer
 
 # package
 cp -r src /opt
