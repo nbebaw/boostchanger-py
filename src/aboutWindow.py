@@ -57,7 +57,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_2.setText(_translate("MainWindow", "Boost Changer"))
-        self.label_3.setText(_translate("MainWindow", "v0.1.1"))
-        self.label_4.setText(_translate("MainWindow", "Tray application to control CPU turbo boost in order \nto consuming less battery voltage on Linux"))
+        MainWindow.setWindowTitle(_translate("About", "About"))
+        self.label_2.setText(_translate("About", "Boost Changer"))
+        self.label_3.setText(_translate("About", "v0.1.1"))
+        self.label_4.setText(_translate("About", "Tray application to control CPU turbo boost in order \nto consuming less battery voltage on Linux"))
