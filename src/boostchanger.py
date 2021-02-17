@@ -4,6 +4,7 @@ from PyQt5 import QtCore
 import os
 import functions
 import aboutWindow
+import subprocess
 
 app = QApplication([])
 app.setQuitOnLastWindowClosed(False)
@@ -49,32 +50,65 @@ boostOn.setIcon(OnIcon)
 boostOff = QAction("Turbo boost OFF")
 boostOff.triggered.connect(functions.turboOff)
 boostOff.setIcon(OffIcon)
+vendor=subprocess.getoutput("cat /proc/cpuinfo | grep -m1 'vendor_id' | awk '{ print $3 }'")
+if (vendor == "GenuineIntel"):
+    # new menu for energy performance in the main menu
+    energyMenu = QMenu("Energy performance")
+    powerSave = QAction("Power Save")
+    powerSave.triggered.connect(functions.powerSave)
+    balance = QAction("Balance")
+    balance.triggered.connect(functions.balance)
+    balancePerformance = QAction("Balance Performance")
+    balancePerformance.triggered.connect(functions.balancePerformance)
+    performance = QAction("Performance")
+    performance.triggered.connect(functions.performance)
 
-# new menu for energy performance in the main menu
-energyMenu = QMenu("Energy performance")
-powerSave = QAction("Power Save")
-powerSave.triggered.connect(functions.powerSave)
-balance = QAction("Balance")
-balance.triggered.connect(functions.balance)
-balancePerformance = QAction("Balance Performance")
-balancePerformance.triggered.connect(functions.balancePerformance)
-performance = QAction("Performance")
-performance.triggered.connect(functions.performance)
+    energyMenu.addAction(powerSave)
+    energyMenu.addAction(balance)
+    energyMenu.addAction(balancePerformance)
+    energyMenu.addAction(performance)
+    energyMenu.setIcon(energyIcon)
 
-energyMenu.addAction(powerSave)
-energyMenu.addAction(balance)
-energyMenu.addAction(balancePerformance)
-energyMenu.addAction(performance)
-energyMenu.setIcon(energyIcon)
+    # Add all options on menu
+    menu.addAction(about)
+    menu.addMenu(energyMenu)
+    menu.addAction(boostOn)
+    menu.addAction(boostOff)
 
-# Add all options on menu
-menu.addAction(about)
-menu.addMenu(energyMenu)
-menu.addAction(boostOn)
-menu.addAction(boostOff)
+    # Adding separator between the options and quit
+    menu.addSeparator()
+else:
+    # new menu for energy performance in the main menu
+    energyMenu = QMenu("Energy performance")
+    conservativeAMD = QAction("Conservative")
+    conservativeAMD.triggered.connect(functions.conservativeAMD)
+    ondemandAMD = QAction("Ondemand")
+    ondemandAMD.triggered.connect(functions.ondemandAMD)
+    userspaceAMD = QAction("Userspace")
+    userspaceAMD.triggered.connect(functions.userspaceAMD)
+    powersaveAMD = QAction("Power Save")
+    powersaveAMD.triggered.connect(functions.powerSaveAMD)
+    performanceAMD = QAction("Performance")
+    performanceAMD.triggered.connect(functions.performanceAMD)
+    schedutilAMD = QAction("Schedutil")
+    schedutilAMD.triggered.connect(functions.schedutilAMD)
 
-# Adding separator between the options and quit
-menu.addSeparator()
+    energyMenu.addAction(conservativeAMD)
+    energyMenu.addAction(ondemandAMD)
+    energyMenu.addAction(userspaceAMD)
+    energyMenu.addAction(powersaveAMD)
+    energyMenu.addAction(performanceAMD)
+    energyMenu.addAction(schedutilAMD)
+    energyMenu.setIcon(energyIcon)
+
+    # Add all options on menu
+    menu.addAction(about)
+    menu.addMenu(energyMenu)
+    menu.addAction(boostOn)
+    menu.addAction(boostOff)
+
+    # Adding separator between the options and quit
+    menu.addSeparator()
 
 # To quit the app
 quit = QAction("Quit")
