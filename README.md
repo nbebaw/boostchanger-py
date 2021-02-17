@@ -41,6 +41,7 @@ sudo ./install.sh
 
 ## New features for future releases
 For v0.2.0
+
 1 = High Prio |  2 = Middle Prio |  3 = Low Prio
 Feature | Prio
 --- | ---
