@@ -1,6 +1,6 @@
 #!/bin/bash
-PKGVER=0.1.1
-PKGOLD=0.1.0
+PKGVER=0.1.2
+PKGOLD=0.1.1
 
 # prepare
 

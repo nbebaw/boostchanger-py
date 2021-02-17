@@ -172,7 +172,6 @@ else:
         )
 
     # Turbo Boost
-
     def turboOn():
         os.system("echo 1 | pkexec tee /sys/devices/system/cpu/cpufreq/boost")
         notification.notify(
@@ -180,7 +179,6 @@ else:
             app_name="Boost Changer",
             app_icon=os.path.join(path, "icons/icon.png")
         )
-
 
     def turboOff():
         os.system("echo 0 | pkexec tee /sys/devices/system/cpu/cpufreq/boost")
@@ -191,7 +189,6 @@ else:
         )
 
     # Energy Performance
-
     def conservativeAMD():
         os.system("echo conservative | pkexec tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor")
         notification.notify(
@@ -199,7 +196,6 @@ else:
             app_name="Boost Changer",
             app_icon=os.path.join(path, "icons/icon.png")
         )
-
 
     def ondemandAMD():
         os.system("echo ondemand | pkexec tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor")
@@ -209,7 +205,6 @@ else:
             app_icon=os.path.join(path, "icons/icon.png")
         )
 
-
     def userspaceAMD():
         os.system("echo userspace | pkexec tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor")
         notification.notify(
@@ -217,7 +212,6 @@ else:
             app_name="Boost Changer",
             app_icon=os.path.join(path, "icons/icon.png")
         )
-
 
     def powerSaveAMD():
         os.system("echo powersave | pkexec tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor")

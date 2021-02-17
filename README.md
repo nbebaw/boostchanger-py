@@ -29,19 +29,20 @@ in fact it can run on top of TLP.
 ### Download, extract and setup
 ```bash
 # Download
-wget https://github.com/nbebaw/boostchanger-py/releases/download/v0.1.1/boost_changer-0.1.1.tar.gz
+wget https://github.com/nbebaw/boostchanger-py/releases/download/v0.1.2/boost_changer-0.1.2.tar.gz
 
 # Extract
-tar -xvf boost_changer-0.1.1.tar.gz
+tar -xvf boost_changer-0.1.2.tar.gz
 
 # Setup
-cd boost_changer-0.1.1
+cd boost_changer-0.1.2
 sudo ./install.sh
 ```
 
 ## New features for future releases
+For v0.2.0
 1 = High Prio |  2 = Middle Prio |  3 = Low Prio
 Feature | Prio
 --- | ---
-Add AMD Support | 1
+Make a window of the application as an alternative to the tray | 2
 
