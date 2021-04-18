@@ -59,5 +59,5 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("About", "About"))
         self.label_2.setText(_translate("About", "Boost Changer"))
-        self.label_3.setText(_translate("About", "v0.1.2"))
+        self.label_3.setText(_translate("About", "v0.1.3"))
         self.label_4.setText(_translate("About", "Tray application to control CPU turbo boost in order \nto consuming less battery voltage on Linux"))
