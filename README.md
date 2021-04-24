@@ -3,7 +3,7 @@
 
 ### :heavy_exclamation_mark: This App needs root rights. When and why? :heavy_exclamation_mark:
 
-Boost Changer is a tray application and made to control the frequencies of Intel CPUs. It can also manage the processor's energy consumption through Energy-Performance Preference.
+Boost Changer is a tray application and made to control the frequencies of <b>Intel CPUs and AMD CPUs</b>. It can also manage the processor's energy consumption through Energy-Performance Preference.
 
 In generall this app does not need root rights but when you hit the Turn Off or On button a popup window will ask you about your root password.
 
