@@ -1,4 +1,5 @@
 # Boost Changer - PYTHON
+![GitHub](https://img.shields.io/github/license/nbebaw/boostchanger-py) ![GitHub all releases](https://img.shields.io/github/downloads/nbebaw/boostchanger-py/total) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/nbebaw/boostchanger-py)
 ## :bangbang: This App is now only for Linux :bangbang:
 
 ### :heavy_exclamation_mark: This App needs root rights. When and why? :heavy_exclamation_mark:
